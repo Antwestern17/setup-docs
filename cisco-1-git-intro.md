@@ -8,5 +8,5 @@ This is my first document stored in Git
 - GitHub stores my repository online.
 - **SSH Keys** keep my account secure.
 
-![My screenshot](images/Ciscoimage1.png)
+![My screenshot](Images/Ciscoimage1.png)
 

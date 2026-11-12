@@ -36,11 +36,19 @@ This is my first document stored in Git
 - password for VTY 0.  enter # line vty 0 15. ex:ASw-2(config-line)#password example password.
 ### domain name problem
 - no ip domain-lookup
+## Start up
 ### tera term
 - serial, com5
 - control panel
 - ethernet properties
 - ipv4
+- computer
+### running config
+- enter show run priv. exec mode
+
+- Console cable out of band
+- telnet in band
+
 
 
 

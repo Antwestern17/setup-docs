@@ -90,9 +90,10 @@ Convert each decimal octet separately, keeping each binary octet at 8 bits:
 - no ip domain-lookup
 ## Start up
 ### tera term
+- view network connections
+- ethernet properties
 - serial, com4
 - control panel
-- ethernet properties
 - ipv4
 - computer
 ### running config

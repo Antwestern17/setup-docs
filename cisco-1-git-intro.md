@@ -90,7 +90,7 @@ Convert each decimal octet separately, keeping each binary octet at 8 bits:
 - no ip domain-lookup
 ## Start up
 ### tera term
-- serial, com5
+- serial, com4
 - control panel
 - ethernet properties
 - ipv4
@@ -100,7 +100,16 @@ Convert each decimal octet separately, keeping each binary octet at 8 bits:
 
 - Console cable out of band
 - telnet in band
+### Computer terminal
+- computer terminal ipconfig /all to view mac address of  your nic.
+### tera terminal
+- ex: S1: show interfaces vlan 1 to view mac address on your switch, also show arp.
 
+- Mac address for vlan 1 and mac serial number for vlan 1 are the same
+
+### end lab
+-switch#erase startup-config
+- switch#reload
 
 
 

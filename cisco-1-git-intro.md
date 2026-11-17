@@ -64,53 +64,46 @@ Convert each decimal octet separately, keeping each binary octet at 8 bits:
 
 # Notes
 
-## Basic configuration for a switch
-- enter <b>enable</b> to enter privilege exec. mode
-- Enter conf t to enter global configuration mode
-- enter: hostname ex:S1 (make sure your commands and switches match the source text letter-for-letter.)
+# Cisco Switch Basic Configuration Guide
 
-## Configure the console and encrypted privileged EXEC mode passwords
-### Console
-- in global configuration mode enter # line console 0
-- then enter # password ex:cisco
-- then enter # login
-### privilege exec mode passwords
-- enter # enable secret ex:class
--encrypt all passwords with # service password-encryption
-### setting up a banner
-- banner motd "example banner"
-### Save configuration file to NYRAM.
-- copy run start
-### Configure the switch management interface.
-- (in configuration mode) enter # interface vlan1
-- enter ip address ex: 192.168.1.253 255.255.255.0
-- No shutdown
-- password for VTY 0.  enter # line vty 0 15. ex:ASw-2(config-line)#password example password.
-### domain name problem
-- no ip domain-lookup
-## Start up
-### tera term
-- view network connections
-- ethernet properties
-- serial, com4
-- control panel
-- ipv4
-- computer
-### running config
-- enter show run priv. exec mode
+A step-by-step reference for configuring basic security, management IP addressing, and saving settings on a Cisco IOS switch from start to finish.
 
-- Console cable out of band
-- telnet in band
-### Computer terminal
-- computer terminal ipconfig /all to view mac address of  your nic.
-### tera terminal
-- ex: S1: show interfaces vlan 1 to view mac address on your switch, also show arp.
+---
 
-- Mac address for vlan 1 and mac serial number for vlan 1 are the same
+### 1. Enter Configuration Mode & Name the Switch
+* `enable` — Enters Privileged EXEC mode (`Switch#`).
+* `configure terminal` — Enters Global Configuration mode (`Switch(config)#`).
+* `hostname S1` — Sets the switch's name to `S1` (`S1(config)#`).
+* `no ip domain-lookup` — Prevents the switch from trying to translate mistyped commands as domain names.
 
-### end lab
--switch#erase startup-config
-- switch#reload
+### 2. Secure Console Access (Physical Cable Login)
+* `line console 0` — Enters Console Line configuration mode (`S1(config-line)#`).
+* `password cisco` — Sets the console login password.
+* `login` — Requires the password when connecting via the console port.
+* `exit` — Returns to Global Configuration mode (`S1(config)#`).
+
+### 3. Secure Remote Access (Telnet / VTY Lines)
+* `line vty 0 15` — Selects all 16 virtual terminal lines for remote access (`S1(config-line)#`).
+* `password examplepassword` — Sets the password for remote logins.
+* `login` — Requires the password for VTY connections.
+* `exit` — Returns to Global Configuration mode (`S1(config)#`).
+
+### 4. Set Privileged Password, Encryption & Login Banner
+* `enable secret class` — Sets an encrypted password (`class`) to enter Privileged EXEC mode.
+* `service password-encryption` — Encrypts all plain-text passwords in the configuration file.
+* `banner motd #Authorized Access Only#` — Sets a Message of the Day login banner.
+
+### 5. Configure Management IP Address (SVI)
+* `interface vlan 1` — Enters the virtual management interface (`S1(config-if)#`).
+* `ip address 192.168.1.253 255.255.255.0` — Assigns the switch a management IP address and subnet mask.
+* `no shutdown` — Enables the virtual interface.
+* `end` — Exits directly back to Privileged EXEC mode (`S1#`).
+
+### 6. Save & Verify (Run from `S1#`)
+* `copy running-config startup-config` — Saves the active configuration to NVRAM so settings persist after a reboot.
+* `show running-config` — Displays the active configuration to verify all settings.
+
+
 
 
 

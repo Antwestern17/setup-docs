@@ -102,11 +102,38 @@ A step-by-step reference for configuring basic security, management IP addressin
 ### 6. Save & Verify (Run from `S1#`)
 * `copy running-config startup-config` — Saves the active configuration to NVRAM so settings persist after a reboot.
 * `show running-config` — Displays the active configuration to verify all settings.
+* `show startup-config` - displays saved configuration file
 
+## Routing
+### Ipv4 Settings
+- IP address - addressof the physical computer itself
+- Subnet mask - tell our computers what part is the network, what part is the host
+- Default Gateway - without a default gateway, if we have a network address not on our local network, it doesnt know where to send it. will not work
+### Loopback Address
+- IPv4 - 127.0.0.1
+- IPv6 - ::1
+- Best way to start trouble shooting. Start close and work away.
+### Configure router interface
+- Router (config)# interface type-and-number
+- router(config)# description
+- router(config)#ip address ipv4 address subnet mask
+- router(config)#ipv6 address ipv6 address/prefix lenght
+- router(config)# no shutdown
+![My Screenshot](Images/Screenshot%202026-11-17%20180713.png)
+### Verify interface configuration.
+#### commands
+- show ip interface brief
+- show ipv6 interface brief. The output displays all interfaces, their ip addresses, and their current status.  The configured and connected interfaces should display a status of "up" and a protocol of "up."  Anything else would indicate a problem with the configuration or cabling
 
-
-
-
+- Show ip route
+- Show ipv6 route.  Displays the contents of the IP routing tables stored in RAM.
+- Show interfaces "serial 0/0/0" for specific interfaces.
+- Show interfaces. Displays statistics for all interfaces on the device.  However, this command will only display the ipv4 addressing information.
+- show ip interface. Displays the ipv4 statistics for all interfaces on a router.
+- show ipv6 interface. Displays the ipv6 statistics for all interfaces on a router.
+### configuring default gateway for layer 2 switch
+- enter configuration mode, configure terminal
+- S1(config)# ip default-gateway "192.168.10.1"
 
 
 

@@ -17,6 +17,7 @@ This is my first document stored in Git
 | 0 | 0000 | 0 |
 | 1 | 0001 | 1 |
 | 2 | 0010 | 2 |
+
 | 3 | 0011 | 3 |
 | 4 | 0100 | 4 |
 | 5 | 0101 | 5 |
@@ -135,6 +136,12 @@ A step-by-step reference for configuring basic security, management IP addressin
 - enter configuration mode, configure terminal
 - S1(config)# ip default-gateway "192.168.10.1"
 
+### router config
+- tellnet connection
+- interface gigabitethernet 0/0/0
+- ip address 192.168.10.1 255.255.255.0
+- no shutdown
+- exit
 
 
 
